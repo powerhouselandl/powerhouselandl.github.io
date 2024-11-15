@@ -18,56 +18,79 @@
     header {
       background-color: #ff8819;
       color: #ffffff;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     header img {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       margin-bottom: 10px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 28px;
     }
 
     header p {
       margin: 5px 0 0;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .hero {
       text-align: center;
       padding: 50px 20px;
-      background: linear-gradient(135deg, #ff8819, #000000);
+      background: linear-gradient(135deg, #ff8819 30%, #000000);
       color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+      mix-blend-mode: overlay;
     }
 
     .hero h2 {
-      font-size: 36px;
+      font-size: 42px;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 20px;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero button {
       background-color: #ffffff;
       color: #ff8819;
       border: none;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 15px 25px;
+      font-size: 18px;
       cursor: pointer;
       border-radius: 5px;
       transition: background-color 0.3s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .hero button:hover {
@@ -140,7 +163,7 @@
 
 <body>
   <header>
-    <img src="Color.png" alt="Powerhouse Load & Level Logo">
+    <img src="Color.jpg" alt="Powerhouse Load & Level Logo">
     <h1>Powerhouse Load & Level</h1>
     <p>Reliable & Affordable Land Services</p>
   </header>
@@ -148,10 +171,10 @@
   <div class="hero">
     <h2>Your Local Experts for Land Clearing & Debris Removal</h2>
     <p>Fast, efficient, and affordable services to get your land ready for any project.</p>
-    <button onclick="scrollToServices()">View Our Services</button>
+    <button onclick="location.href='tel:8136254765'">Call Now: 813-625-4765</button>
   </div>
 
-  <div class="services" id="services">
+  <div class="services">
     <div class="service">
       <h3>Skilled Skid Steer Operator</h3>
       <p>Precision work for all your land needs.</p>
@@ -180,18 +203,12 @@
 
   <div class="cta">
     <h2>Ready to get started?</h2>
-    <button onclick="location.href='tel:+18136254765'">Call Now for a Free Quote (813)625-4765</button>
+    <button onclick="location.href='tel:8136254765'">Call Now: 813-625-4765</button>
   </div>
 
   <footer>
     <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    function scrollToServices() {
-      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
 </body>
 
 </html>
