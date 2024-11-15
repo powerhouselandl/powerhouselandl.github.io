@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: white;
+            background-color: #f9f9f9;
             color: black;
         }
         header {
@@ -20,12 +20,17 @@
         }
         header img {
             width: 150px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         main {
             padding: 20px;
             text-align: center;
         }
-        h1 {
+        h1, h2 {
             color: #FF6600;
         }
         .services {
@@ -38,6 +43,13 @@
             border: 2px solid #FF6600;
             padding: 15px;
             border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
         footer {
             background-color: #333;
@@ -45,6 +57,28 @@
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
+        }
+        #search {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            border: 2px solid #FF6600;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #contact-button {
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        #contact-button:hover {
+            background-color: #cc5200;
         }
     </style>
 </head>
@@ -56,7 +90,8 @@
     </header>
     <main>
         <h2>Our Services</h2>
-        <div class="services">
+        <input type="text" id="search" placeholder="Search services..." onkeyup="filterServices()">
+        <div class="services" id="service-list">
             <div class="service">Skilled Skid Steer Operator</div>
             <div class="service">Affordable Debris Removal</div>
             <div class="service">Quick Land Grading Solutions</div>
@@ -83,9 +118,26 @@
         <p>Best prices on land grading services near you.</p>
         <p>Get your land leveled by the experts.</p>
         <p>Debris Removal & Land Grading Services Near Me.</p>
+        <button id="contact-button" onclick="contactPopup()">Contact Us Now!</button>
     </main>
     <footer>
         <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function filterServices() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const services = document.querySelectorAll('.service');
+
+            services.forEach(service => {
+                const text = service.textContent.toLowerCase();
+                service.style.display = text.includes(searchInput) ? 'block' : 'none';
+            });
+        }
+
+        function contactPopup() {
+            alert("Thanks for visiting Powerhouse Load & Level! Call us now or send us an email to get started!");
+        }
+    </script>
 </body>
 </html>
