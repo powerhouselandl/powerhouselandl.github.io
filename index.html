@@ -34,6 +34,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      flex: 1 1 auto;
     }
 
     .branding img {
@@ -41,11 +42,6 @@
       height: 60px;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .branding img:hover {
-      transform: scale(1.1);
     }
 
     .branding h1 {
@@ -67,6 +63,7 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
+      flex: 1 1 auto;
     }
 
     header nav a {
@@ -174,10 +171,11 @@
     @media (min-width: 600px) {
       .hero-content {
         text-align: left;
+        flex: 1 1 50%;
       }
 
       .hero-image {
-        flex: 1;
+        flex: 1 1 50%;
         height: 300px;
       }
 
