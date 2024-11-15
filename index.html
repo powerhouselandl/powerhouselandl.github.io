@@ -8,7 +8,7 @@
   <style>
     /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #ffffff;
@@ -26,6 +26,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     header img {
@@ -51,33 +52,16 @@
       background: linear-gradient(135deg, #ff8819 30%, #000000);
       color: #ffffff;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.1);
-      z-index: 1;
-      mix-blend-mode: overlay;
     }
 
     .hero h2 {
       font-size: 42px;
       margin-bottom: 20px;
-      position: relative;
-      z-index: 2;
     }
 
     .hero p {
       font-size: 20px;
       margin-bottom: 20px;
-      position: relative;
-      z-index: 2;
     }
 
     .hero button {
@@ -89,8 +73,6 @@
       cursor: pointer;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-      position: relative;
-      z-index: 2;
     }
 
     .hero button:hover {
@@ -112,12 +94,13 @@
       flex: 1 1 calc(33.333% - 40px);
       max-width: calc(33.333% - 40px);
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease;
       border-radius: 5px;
     }
 
     .service:hover {
       transform: scale(1.05);
+      background-color: #ff881933;
     }
 
     .service h3 {
@@ -209,6 +192,23 @@
   <footer>
     <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Simple scrolling animation for services section
+    document.addEventListener('scroll', () => {
+      const services = document.querySelectorAll('.service');
+      services.forEach(service => {
+        const rect = service.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          service.style.opacity = 1;
+          service.style.transform = 'translateY(0)';
+        } else {
+          service.style.opacity = 0;
+          service.style.transform = 'translateY(50px)';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
