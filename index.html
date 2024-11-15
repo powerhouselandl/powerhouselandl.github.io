@@ -13,55 +13,99 @@
       padding: 0;
       background-color: #ffffff;
       color: #000000;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #ff8819;
+      background-color: rgba(255, 136, 25, 0.9);
       color: #ffffff;
-      padding: 20px;
-      text-align: center;
+      padding: 10px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
     header img {
       width: 100px;
       height: 100px;
       border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.1);
     }
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 24px;
     }
 
     header p {
-      margin: 5px 0 0;
+      margin: 5px 0 20px;
+      font-size: 14px;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #ffffff;
       font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    header nav a:hover {
+      background-color: #ffe1c3;
+      color: #ff8819;
+      transform: scale(1.1);
+    }
+
+    header nav a.active {
+      background-color: #ffffff;
+      color: #ff8819;
+      border: 2px solid #ff8819;
+      border-radius: 5px;
     }
 
     .hero {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 50px 20px;
-      background: linear-gradient(135deg, #ff8819 30%, #000000);
+      background: linear-gradient(135deg, #ff8819 50%, #ffffff);
       color: #ffffff;
       position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      flex: 1;
+      color: #ffffff;
+      text-align: left;
     }
 
     .hero h2 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .hero p {
       font-size: 20px;
       margin-bottom: 20px;
+      line-height: 1.5;
     }
 
     .hero button {
@@ -72,11 +116,43 @@
       font-size: 18px;
       cursor: pointer;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 136, 25, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
+      z-index: -1;
+    }
+
+    .hero button:hover::after {
+      width: 300%;
+      height: 300%;
     }
 
     .hero button:hover {
-      background-color: #ffe1c3;
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      flex: 1;
+      background-image: url('https://via.placeholder.com/600x400'); /* Replace with actual image */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .services {
@@ -84,6 +160,7 @@
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
+      background-color: #f9f9f9;
     }
 
     .service {
@@ -96,50 +173,40 @@
       text-align: center;
       transition: transform 0.3s ease, background-color 0.3s ease;
       border-radius: 5px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1s ease forwards;
     }
 
-    .service:hover {
-      transform: scale(1.05);
-      background-color: #ff881933;
+    .service:nth-child(2) {
+      animation-delay: 0.2s;
     }
 
-    .service h3 {
-      color: #ff8819;
-      margin-bottom: 10px;
+    .service:nth-child(3) {
+      animation-delay: 0.4s;
     }
 
-    .cta {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #000000;
-      color: #ffffff;
+    .service:nth-child(4) {
+      animation-delay: 0.6s;
     }
 
-    .cta h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    .service:nth-child(5) {
+      animation-delay: 0.8s;
     }
 
-    .cta button {
-      background-color: #ff8819;
-      color: #ffffff;
-      border: none;
-      padding: 15px 30px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+    .service:nth-child(6) {
+      animation-delay: 1s;
     }
 
-    .cta button:hover {
-      background-color: #ffc299;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #ff8819;
-      color: #ffffff;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -149,15 +216,23 @@
     <img src="Color.png" alt="Powerhouse Load & Level Logo">
     <h1>Powerhouse Load & Level</h1>
     <p>Reliable & Affordable Land Services</p>
+    <nav>
+      <a href="#services" class="active">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <div class="hero">
-    <h2>Your Local Experts for Land Clearing & Debris Removal</h2>
-    <p>Fast, efficient, and affordable services to get your land ready for any project.</p>
-    <button onclick="location.href='tel:8136254765'">Call Now: 813-625-4765</button>
+    <div class="hero-content">
+      <h2>Your Local Experts for Land Clearing & Debris Removal</h2>
+      <p>Fast, efficient, and affordable services to get your land ready for any project.</p>
+      <button onclick="location.href='tel:8136254765'">Call Now: 813-625-4765</button>
+    </div>
+    <div class="hero-image"></div>
   </div>
 
-  <div class="services">
+  <div id="services" class="services">
     <div class="service">
       <h3>Skilled Skid Steer Operator</h3>
       <p>Precision work for all your land needs.</p>
@@ -183,32 +258,6 @@
       <p>Removing stumps to create smooth surfaces.</p>
     </div>
   </div>
-
-  <div class="cta">
-    <h2>Ready to get started?</h2>
-    <button onclick="location.href='tel:8136254765'">Call Now: 813-625-4765</button>
-  </div>
-
-  <footer>
-    <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    // Simple scrolling animation for services section
-    document.addEventListener('scroll', () => {
-      const services = document.querySelectorAll('.service');
-      services.forEach(service => {
-        const rect = service.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          service.style.opacity = 1;
-          service.style.transform = 'translateY(0)';
-        } else {
-          service.style.opacity = 0;
-          service.style.transform = 'translateY(50px)';
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
