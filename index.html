@@ -13,7 +13,7 @@
             color: black;
         }
         header {
-            background-color: #FF6600;
+            background-color: #FF8500;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -31,7 +31,7 @@
             text-align: center;
         }
         h1, h2 {
-            color: #FF6600;
+            color: #FF8500;
         }
         .services {
             display: grid;
@@ -40,7 +40,7 @@
             margin-top: 20px;
         }
         .service {
-            border: 2px solid #FF6600;
+            border: 2px solid #FF8500;
             padding: 15px;
             border-radius: 10px;
             background-color: white;
@@ -62,23 +62,44 @@
             width: 80%;
             max-width: 400px;
             padding: 10px;
-            border: 2px solid #FF6600;
+            border: 2px solid #FF8500;
             border-radius: 5px;
             margin-bottom: 20px;
         }
-        #contact-button {
-            background-color: #FF6600;
+        #contact-us {
+            background-color: #FF8500;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        #contact-button:hover {
-            background-color: #cc5200;
+        #contact-us h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        #contact-us p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        #call-button {
+            display: inline-block;
+            background-color: white;
+            color: #FF8500;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #call-button:hover {
+            background-color: white;
+            color: #cc6600;
         }
     </style>
 </head>
@@ -118,7 +139,12 @@
         <p>Best prices on land grading services near you.</p>
         <p>Get your land leveled by the experts.</p>
         <p>Debris Removal & Land Grading Services Near Me.</p>
-        <button id="contact-button" onclick="contactPopup()">Contact Us Now!</button>
+        <div id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Have questions or need a quote?</p>
+            <p>📞 <strong>813-625-4765</strong></p>
+            <a href="tel:8136254765" id="call-button">Call Us Now!</a>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
@@ -133,10 +159,6 @@
                 const text = service.textContent.toLowerCase();
                 service.style.display = text.includes(searchInput) ? 'block' : 'none';
             });
-        }
-
-        function contactPopup() {
-            alert("Thanks for visiting Powerhouse Load & Level! Call us now or send us an email to get started!");
         }
     </script>
 </body>
