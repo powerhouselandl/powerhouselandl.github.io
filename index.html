@@ -1,165 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powerhouse Load & Level</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: black;
-        }
-        header {
-            background-color: #FF8500;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        header img {
-            width: 150px;
-            animation: fadeIn 2s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-        h1, h2 {
-            color: #FF8500;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .service {
-            border: 2px solid #FF8500;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-        #search {
-            width: 80%;
-            max-width: 400px;
-            padding: 10px;
-            border: 2px solid #FF8500;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        #contact-us {
-            background-color: #FF8500;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px auto;
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        #contact-us h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        #contact-us p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        #call-button {
-            display: inline-block;
-            background-color: white;
-            color: #FF8500;
-            text-decoration: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        #call-button:hover {
-            background-color: white;
-            color: #cc6600;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Powerhouse Load & Level</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    header {
+      background-color: #ff8819;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff8819, #000000);
+      color: #ffffff;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      background-color: #ffffff;
+      color: #ff8819;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #ffe1c3;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .service {
+      background: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      padding: 20px;
+      flex: 1 1 calc(33.333% - 40px);
+      max-width: calc(33.333% - 40px);
+      text-align: center;
+      transition: transform 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .service:hover {
+      transform: scale(1.05);
+    }
+
+    .service h3 {
+      color: #ff8819;
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      background-color: #ff8819;
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+      background-color: #ffc299;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ff8819;
+      color: #ffffff;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <img src="Color.png" alt="Powerhouse Load & Level Logo">
-        <h1>Powerhouse Load & Level</h1>
-        <p>Reliable. Affordable. Professional.</p>
-    </header>
-    <main>
-        <h2>Our Services</h2>
-        <input type="text" id="search" placeholder="Search services..." onkeyup="filterServices()">
-        <div class="services" id="service-list">
-            <div class="service">Skilled Skid Steer Operator</div>
-            <div class="service">Affordable Debris Removal</div>
-            <div class="service">Quick Land Grading Solutions</div>
-            <div class="service">Brush Clearing and Hauling</div>
-            <div class="service">Professional Site Cleanup Crew</div>
-            <div class="service">Debris Removal Near You</div>
-            <div class="service">Skid Steer Work</div>
-            <div class="service">Affordable Land Grading</div>
-            <div class="service">Fast & Efficient</div>
-            <div class="service">Reliable & Affordable</div>
-            <div class="service">Dump Truck Hauling Services</div>
-            <div class="service">Local Grading and Leveling</div>
-            <div class="service">Land Clearing Services</div>
-            <div class="service">Excavation Site Cleanup</div>
-            <div class="service">Stump Removal</div>
-        </div>
-        <h2>Why Choose Us?</h2>
-        <p>Debris Removal Pro - We Handle All Your Debris Removal Needs</p>
-        <p>Get your land leveled and ready for your dream home.</p>
-        <p>Affordable Debris Removal Services Near You. Call Now For A Free Quote.</p>
-        <p>Skid Steer Work Company. Affordable Land Grading Services.</p>
-        <p>Fast Construction Site Cleanup. Debris Removal Services. Call Now.</p>
-        <p>Debris Removal and More - Your Local Cleanup Solution</p>
-        <p>Best prices on land grading services near you.</p>
-        <p>Get your land leveled by the experts.</p>
-        <p>Debris Removal & Land Grading Services Near Me.</p>
-        <div id="contact-us">
-            <h2>Contact Us</h2>
-            <p>Have questions or need a quote?</p>
-            <p>📞 <strong>813-625-4765</strong></p>
-            <a href="tel:8136254765" id="call-button">Call Us Now!</a>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
-    </footer>
+  <header>
+    <img src="Color.jpg" alt="Powerhouse Load & Level Logo">
+    <h1>Powerhouse Load & Level</h1>
+    <p>Reliable & Affordable Land Services</p>
+  </header>
 
-    <script>
-        function filterServices() {
-            const searchInput = document.getElementById('search').value.toLowerCase();
-            const services = document.querySelectorAll('.service');
+  <div class="hero">
+    <h2>Your Local Experts for Land Clearing & Debris Removal</h2>
+    <p>Fast, efficient, and affordable services to get your land ready for any project.</p>
+    <button onclick="scrollToServices()">View Our Services</button>
+  </div>
 
-            services.forEach(service => {
-                const text = service.textContent.toLowerCase();
-                service.style.display = text.includes(searchInput) ? 'block' : 'none';
-            });
-        }
-    </script>
+  <div class="services" id="services">
+    <div class="service">
+      <h3>Skilled Skid Steer Operator</h3>
+      <p>Precision work for all your land needs.</p>
+    </div>
+    <div class="service">
+      <h3>Affordable Debris Removal</h3>
+      <p>We clean up so you can focus on building.</p>
+    </div>
+    <div class="service">
+      <h3>Quick Land Grading Solutions</h3>
+      <p>Leveling your land, fast and efficient.</p>
+    </div>
+    <div class="service">
+      <h3>Brush Clearing and Hauling</h3>
+      <p>Clear the clutter, transform your property.</p>
+    </div>
+    <div class="service">
+      <h3>Dump Truck Hauling</h3>
+      <p>Reliable hauling for debris and materials.</p>
+    </div>
+    <div class="service">
+      <h3>Stump Removal</h3>
+      <p>Removing stumps to create smooth surfaces.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Ready to get started?</h2>
+    <button onclick="location.href='tel:+18136254765'">Call Now for a Free Quote (813)625-4765</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Powerhouse Load & Level. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function scrollToServices() {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
+
 </html>
